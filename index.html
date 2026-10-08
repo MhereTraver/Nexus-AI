@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus AI — The Autonomous Engineering Intelligence Platform</title>
+  <meta name="description" content="Architect, build, and deploy mission-critical software systems at the speed of thought with Nexus AI. Autonomous agents, self-healing code, and real-time telemetry orchestration.">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- FOUC Prevention Script -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('nexus_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', savedTheme === 'light' ? 'light' : 'dark');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', 'light');
+      }
+    })();
+  </script>
+
+  <!-- Typography: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Interactive Canvas Background -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Background Glow Orbs -->
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+  <div class="glow-orb orb-3" aria-hidden="true"></div>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" role="banner">
+    <div class="announcement-content">
+      <span class="badge-pulse">NEW</span>
+      <span>Nexus Core 3.4 Released: Zero-Latency Autonomous Multi-Agent Consensus</span>
+      <a href="#demo" class="announcement-link">Explore Release Notes &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="site-header" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo" aria-label="Nexus AI Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="url(#logo-grad)" />
+            <path d="M9 23V9L23 23V9" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366F1"/>
+                <stop offset="0.5" stop-color="#8B5CF6"/>
+                <stop offset="1" stop-color="#EC4899"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="brand-name">Nexus<span class="gradient-text">AI</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu" aria-label="Main Navigation">
+        <a href="#features" class="nav-item">Platform</a>
+        <a href="#interactive-playground" class="nav-item">Playground</a>
+        <a href="#architecture" class="nav-item">Architecture</a>
+        <a href="#benchmarks" class="nav-item">Benchmarks</a>
+        <a href="#pricing" class="nav-item">Pricing</a>
+        <a href="#faq" class="nav-item">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme" title="Toggle Light/Dark Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#playground" class="btn btn-ghost hide-mobile">Sign In</a>
+        <a href="#cta" class="btn btn-primary glow-button">
+          <span>Start Free</span>
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none">
+            <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33334M12.6667 8L8.00001 12.6667" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Status Pill -->
+        <div class="hero-badge animate-fade-in">
+          <span class="ping-circle"></span>
+          <span class="badge-text">Autonomous Multi-Agent Engineering Core</span>
+          <span class="badge-version">v3.4 Production Ready</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="hero-title animate-fade-up">
+          Architect, Code, & Deploy Systems <br>
+          <span class="gradient-text text-glow">At The Speed Of Thought.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle animate-fade-up delay-1">
+          Nexus AI is the autonomous engineering co-pilot that orchestrates end-to-end software lifecycles: from high-level system architecture and self-healing microservices to zero-downtime cloud releases.
+        </p>
+
+        <!-- CTA Action Group -->
+        <div class="hero-cta-group animate-fade-up delay-2">
+          <a href="#playground" class="btn btn-primary btn-lg glow-button">
+            <span>Launch Interactive Console</span>
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none">
+              <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33334M12.6667 8L8.00001 12.6667" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <button id="trigger-demo-modal" class="btn btn-secondary btn-lg play-btn-wrapper">
+            <div class="play-icon-circle">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <span>Watch 90s Product Walkthrough</span>
+          </button>
+        </div>
+
+        <!-- Real-time Metrics Ticker -->
+        <div class="hero-stats-grid animate-fade-up delay-3">
+          <div class="stat-card">
+            <div class="stat-value" data-counter="99.98" data-suffix="%">0%</div>
+            <div class="stat-label">Autonomous Test Coverage</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="8.4" data-prefix="" data-suffix="x">0x</div>
+            <div class="stat-label">Engineering Velocity Increase</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="14.2" data-suffix="ms">0ms</div>
+            <div class="stat-label">Sub-Second Agentic Latency</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <div class="stat-value" data-counter="4.9" data-suffix="/5">0/5</div>
+            <div class="stat-label">Developer Rating (48k Reviews)</div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Workstation Console -->
+        <div class="hero-console-wrapper animate-fade-up delay-4" id="console-demo">
+          <div class="console-window spotlight-card">
+            
+            <!-- Window Topbar -->
+            <div class="console-header">
+              <div class="window-controls">
+                <span class="control-dot close"></span>
+                <span class="control-dot minimize"></span>
+                <span class="control-dot maximize"></span>
+              </div>
+              <div class="console-tabs" role="tablist">
+                <button class="console-tab active" data-tab="tab-code" role="tab" aria-selected="true">
+                  <span class="tab-icon">⚡</span> nexus_cluster.ts
+                </button>
+                <button class="console-tab" data-tab="tab-telemetry" role="tab" aria-selected="false">
+                  <span class="tab-icon">📊</span> live_telemetry.log
+                </button>
+                <button class="console-tab" data-tab="tab-architecture" role="tab" aria-selected="false">
+                  <span class="tab-icon">🕸️</span> topology_graph
+                </button>
+              </div>
+              <div class="console-status-pill">
+                <span class="status-indicator-green"></span>
+                <span>Active Consensus</span>
+              </div>
+            </div>
+
+            <!-- Tab Content 1: Code Simulation -->
+            <div class="console-body tab-pane active" id="tab-code">
+              <div class="code-wrapper">
+                <div class="line-numbers" aria-hidden="true">
+                  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                  <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                  <span>11</span><span>12</span><span>13</span><span>14</span>
+                </div>
+                <pre class="code-content"><code><span class="tok-kw">import</span> { <span class="tok-type">NexusAgentCluster</span>, <span class="tok-type">SelfHealingRuntime</span> } <span class="tok-kw">from</span> <span class="tok-str">'@nexus/core'</span>;
+
+<span class="tok-comment">// Initialize decentralized agentic cluster</span>
+<span class="tok-kw">const</span> <span class="tok-var">cluster</span> = <span class="tok-kw">new</span> <span class="tok-type">NexusAgentCluster</span>({
+  <span class="tok-prop">consensusMode</span>: <span class="tok-str">'byzantine-fault-tolerant'</span>,
+  <span class="tok-prop">autoRefactor</span>: <span class="tok-bool">true</span>,
+  <span class="tok-prop">memoryBank</span>: <span class="tok-str">'vector-redis-ultra'</span>
+});
+
+<span class="tok-kw">await</span> <span class="tok-var">cluster</span>.<span class="tok-fn">spawnSubagent</span>({
+  <span class="tok-prop">role</span>: <span class="tok-str">'Distributed Systems Architect'</span>,
+  <span class="tok-prop">objective</span>: <span class="tok-str">'Harden high-load payments pipeline & eliminate thread contention'</span>,
+  <span class="tok-prop">verificationPolicy</span>: <span class="tok-str">'strict-chaos-monkey'</span>
+});
+
+<span class="tok-kw">const</span> <span class="tok-var">result</span> = <span class="tok-kw">await</span> <span class="tok-var">cluster</span>.<span class="tok-fn">synthesizeSolution</span>();
+<span class="tok-var">console</span>.<span class="tok-fn">log</span>(<span class="tok-str">`🚀 Deployed with 0 downtime: ${<span class="tok-var">result</span>.<span class="tok-prop">latencyReduction</span>}% faster`</span>);</code></pre>
+              </div>
+
+              <!-- Interactive Live Stream Terminal Feed -->
+              <div class="console-terminal-feed">
+                <div class="feed-header">
+                  <span>REAL-TIME AGENT INFERENCE EXECUTION STREAM</span>
+                  <span class="feed-badge">LIVE 60fps</span>
+                </div>
+                <div class="feed-logs" id="hero-feed-logs">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 2: Telemetry -->
+            <div class="console-body tab-pane" id="tab-telemetry">
+              <div class="telemetry-grid">
+                <div class="telemetry-item">
+                  <div class="telemetry-title">Vector Memory Throughput</div>
+                  <div class="telemetry-metric">1,248,000 <span class="unit">ops/sec</span></div>
+                  <svg class="sparkline" viewBox="0 0 200 40">
+                    <path d="M0,35 Q30,10 60,25 T120,8 T160,18 T200,5" fill="none" stroke="#6366F1" stroke-width="2.5" />
+                  </svg>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-title">Neural Self-Repair Latency</div>
+                  <div class="telemetry-metric">4.12 <span class="unit">ms</span></div>
+                  <svg class="sparkline" viewBox="0 0 200 40">
+                    <path d="M0,28 Q40,32 70,12 T130,22 T170,9 T200,14" fill="none" stroke="#10B981" stroke-width="2.5" />
+                  </svg>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-title">Autonomous PR Approval Rate</div>
+                  <div class="telemetry-metric">99.74 <span class="unit">%</span></div>
+                  <svg class="sparkline" viewBox="0 0 200 40">
+                    <path d="M0,20 Q45,5 90,15 T150,10 T180,5 T200,2" fill="none" stroke="#EC4899" stroke-width="2.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Content 3: Architecture Topology -->
+            <div class="console-body tab-pane" id="tab-architecture">
+              <div class="topology-canvas-wrap">
+                <div class="topo-node central-node">
+                  <div class="node-icon">🧠</div>
+                  <div class="node-label">Nexus Agent Core</div>
+                  <div class="node-sub">Distributed Brain</div>
+                </div>
+                <div class="topo-connections">
+                  <div class="topo-node leaf-node node-left">
+                    <div class="node-icon">🔍</div>
+                    <div class="node-label">AST Linter & Static Analysis</div>
+                  </div>
+                  <div class="topo-node leaf-node node-top">
+                    <div class="node-icon">⚡</div>
+                    <div class="node-label">Neural Auto-Refactor</div>
+                  </div>
+                  <div class="topo-node leaf-node node-right">
+                    <div class="node-icon">🛡️</div>
+                    <div class="node-label">Zero-Trust Guardrail</div>
+                  </div>
+                  <div class="topo-node leaf-node node-bottom">
+                    <div class="node-icon">🚀</div>
+                    <div class="node-label">Multi-Cloud Deploy Edge</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Console Footer -->
+            <div class="console-footer">
+              <div class="console-controls-left">
+                <button id="sim-run-btn" class="mini-btn mini-btn-active">
+                  <span class="icon">▶</span> Re-run Agent Loop
+                </button>
+                <button id="sim-clear-btn" class="mini-btn">Clear Logs</button>
+              </div>
+              <div class="console-stats-right">
+                <span>Tokens/sec: <strong class="tok-green">240.5</strong></span>
+                <span>Context: <strong class="tok-purple">2,000,000 tok</strong></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Trusted By / Brand Logos Carousel -->
+    <section class="brands-section" aria-label="Trusted Companies">
+      <div class="container">
+        <p class="brands-tagline">DEPLOYED BY HIGH-VELOCITY ENGINEERING TEAMS WORLDWIDE</p>
+        <div class="brand-slider-container">
+          <div class="brand-track">
+            <span class="brand-logo-item"><span class="logo-symbol">⟁</span> PYRAMID TECH</span>
+            <span class="brand-logo-item"><span class="logo-symbol">⬢</span> HEXAFLOW</span>
+            <span class="brand-logo-item"><span class="logo-symbol">✦</span> NOVA SYSTEMS</span>
+            <span class="brand-logo-item"><span class="logo-symbol">☵</span> STRATA LABS</span>
+            <span class="brand-logo-item"><span class="logo-symbol">⚡</span> VELOCITY IO</span>
+            <span class="brand-logo-item"><span class="logo-symbol">◈</span> QUANTUM SCALE</span>
+            <!-- Duplicates for seamless infinite loop -->
+            <span class="brand-logo-item"><span class="logo-symbol">⟁</span> PYRAMID TECH</span>
+            <span class="brand-logo-item"><span class="logo-symbol">⬢</span> HEXAFLOW</span>
+            <span class="brand-logo-item"><span class="logo-symbol">✦</span> NOVA SYSTEMS</span>
+            <span class="brand-logo-item"><span class="logo-symbol">☵</span> STRATA LABS</span>
+            <span class="brand-logo-item"><span class="logo-symbol">⚡</span> VELOCITY IO</span>
+            <span class="brand-logo-item"><span class="logo-symbol">◈</span> QUANTUM SCALE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Features Section -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">UNMATCHED POWER</span>
+          <h2 class="section-title">Engineered For The Autonomous Future</h2>
+          <p class="section-subtitle">
+            Nexus AI replaces brittle legacy automation with cognitive micro-agents that observe, comprehend, refactor, and self-heal your systems 24/7.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          
+          <!-- Bento Item 1: Large Featured Card -->
+          <article class="bento-card bento-wide spotlight-card">
+            <div class="bento-content">
+              <div class="card-icon-wrap icon-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+              </div>
+              <span class="bento-tag">CORE AGENTIC ENGINE</span>
+              <h3 class="bento-title">Autonomous Self-Healing Runtime</h3>
+              <p class="bento-desc">
+                When a production exception triggers or a regression slips into staging, Nexus spawns a diagnostic subagent cluster. It pinpoints the fault, authors an exact diff patch, validates it against test suites, and requests human sign-off in under 4 seconds.
+              </p>
+              
+              <!-- Interactive Visual Component inside Bento -->
+              <div class="interactive-diff-box">
+                <div class="diff-header">
+                  <span class="diff-title">src/database/connection_pool.ts (Auto-repaired)</span>
+                  <span class="diff-badge-fixed">✓ All 42 Tests Passing</span>
+                </div>
+                <div class="diff-lines">
+                  <div class="diff-line line-del">- return pool.acquire({ timeoutMs: 500 }); // Caused bottleneck under load</div>
+                  <div class="diff-line line-add">+ return pool.acquireResilient({ timeoutMs: 2500, backoffStrategy: 'exponential_jitter' });</div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Bento Item 2: Zero-Trust Security -->
+          <article class="bento-card spotlight-card">
+            <div class="bento-content">
+              <div class="card-icon-wrap icon-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <span class="bento-tag">AIR-GAPPED PROTOCOL</span>
+              <h3 class="bento-title">Zero-Trust Enterprise Guardrails</h3>
+              <p class="bento-desc">
+                Your code never leaves your VPC. Nexus integrates with local LLM clusters or dedicated sovereign clouds with SOC2 Type II, HIPAA, and GDPR compliance built into every token.
+              </p>
+              
+              <div class="compliance-badges">
+                <span class="badge-item"><span class="check">✓</span> SOC2 Type II</span>
+                <span class="badge-item"><span class="check">✓</span> HIPAA Validated</span>
+                <span class="badge-item"><span class="check">✓</span> 100% Zero Data Retention</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bento Item 3: Edge Inference -->
+          <article class="bento-card spotlight-card">
+            <div class="bento-content">
+              <div class="card-icon-wrap icon-emerald">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <span class="bento-tag">DISTRIBUTED FABRIC</span>
+              <h3 class="bento-title">Global Sub-15ms Latency Mesh</h3>
+              <p class="bento-desc">
+                Edge routing ensures your development prompts, AST parsing, and code transformations execute locally in 35+ global regions with instant consensus.
+              </p>
+              
+              <div class="latency-grid-mini">
+                <div class="ping-row">
+                  <span>US-East (Virginia)</span>
+                  <span class="ping-val ping-green">4ms</span>
+                </div>
+                <div class="ping-row">
+                  <span>EU-Central (Frankfurt)</span>
+                  <span class="ping-val ping-green">9ms</span>
+                </div>
+                <div class="ping-row">
+                  <span>AP-East (Tokyo)</span>
+                  <span class="ping-val ping-green">14ms</span>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Bento Item 4: Multi-Agent Parallelism -->
+          <article class="bento-card bento-wide spotlight-card">
+            <div class="bento-content">
+              <div class="card-icon-wrap icon-pink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                  <polyline points="2 17 12 22 22 17"/>
+                  <polyline points="2 12 12 17 22 12"/>
+                </svg>
+              </div>
+              <span class="bento-tag">SWARM ARCHITECTURE</span>
+              <h3 class="bento-title">Hierarchical Multi-Agent Consensus</h3>
+              <p class="bento-desc">
+                Don't rely on a single prompt. Nexus breaks major feature tickets into specialized roles: Principal Architect $\rightarrow$ Frontend Specialist $\rightarrow$ Database DBA $\rightarrow$ Chaos QA Reviewer. Each checks the others' output before unified delivery.
+              </p>
+
+              <div class="agent-swarm-visual">
+                <div class="swarm-step">
+                  <div class="step-num">01</div>
+                  <div class="step-body">
+                    <strong>Architect Agent</strong>
+                    <span>Deconstructs ticket into domain specs & data models</span>
+                  </div>
+                </div>
+                <div class="swarm-arrow">&rarr;</div>
+                <div class="swarm-step">
+                  <div class="step-num">02</div>
+                  <div class="step-body">
+                    <strong>Worker Cluster</strong>
+                    <span>Implements microservices & client UI in parallel</span>
+                  </div>
+                </div>
+                <div class="swarm-arrow">&rarr;</div>
+                <div class="swarm-step">
+                  <div class="step-num">03</div>
+                  <div class="step-body">
+                    <strong>Red-Team QA</strong>
+                    <span>Executes fuzz testing & edge-case stress verification</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Playground Section -->
+    <section class="playground-section" id="interactive-playground">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">LIVE SANDBOX</span>
+          <h2 class="section-title">Test Drive Nexus In Real-Time</h2>
+          <p class="section-subtitle">
+            Choose an engineering directive or enter your own prompt to observe how our agent cluster autonomously plans, writes, and deploys verified code.
+          </p>
+        </div>
+
+        <div class="playground-card spotlight-card">
+          <!-- Preset Prompts Selection -->
+          <div class="preset-selector">
+            <span class="preset-label">Preset Scenarios:</span>
+            <button class="preset-btn active" data-preset="cache">⚡ Distributed Redis Cache</button>
+            <button class="preset-btn" data-preset="refactor">🔄 Microservice Decomp</button>
+            <button class="preset-btn" data-preset="security">🛡️ SQL Injection Hardening</button>
+          </div>
+
+          <!-- Prompt Input Bar -->
+          <div class="prompt-input-wrapper">
+            <span class="prompt-icon">🤖</span>
+            <input type="text" id="playground-prompt-input" class="prompt-input" value="Architect and implement a resilient Redis cache layer with automated TTL decay and fallback." placeholder="Type an engineering objective...">
+            <button id="run-playground-btn" class="btn btn-primary">
+              <span id="playground-btn-text">Execute Task</span>
+              <span class="spinner" id="playground-spinner" style="display: none;"></span>
+            </button>
+          </div>
+
+          <!-- Playground Output Split View -->
+          <div class="playground-split-view">
+            
+            <!-- Left: Agent Reasoning & Steps -->
+            <div class="split-col-reasoning">
+              <div class="col-header">
+                <span>Autonomous Execution Plan</span>
+                <span class="step-counter" id="plan-status">3/3 Steps Complete</span>
+              </div>
+              <div class="execution-timeline" id="execution-timeline">
+                <div class="timeline-item done">
+                  <div class="timeline-dot">✓</div>
+                  <div class="timeline-content">
+                    <h4>Analyze Codebase Topology</h4>
+                    <p>Scanned 148 source files, identified hot Redis cache invalidation bottlenecks.</p>
+                  </div>
+                </div>
+                <div class="timeline-item done">
+                  <div class="timeline-dot">✓</div>
+                  <div class="timeline-content">
+                    <h4>Author Fault-Tolerant Implementation</h4>
+                    <p>Generated connection pooling with circuit-breaker fallbacks and cluster sharding.</p>
+                  </div>
+                </div>
+                <div class="timeline-item done">
+                  <div class="timeline-dot">✓</div>
+                  <div class="timeline-content">
+                    <h4>Synthesize Unit & Chaos Tests</h4>
+                    <p>Executed 32 simulated network partition tests. 0 memory leaks discovered.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Code Output -->
+            <div class="split-col-code">
+              <div class="col-header">
+                <span id="output-filename">redis_resilient_cache.ts</span>
+                <button class="copy-btn" id="copy-code-btn" title="Copy code">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <div class="code-terminal-scroll">
+                <pre><code id="playground-code-display"><span class="tok-kw">export</span> <span class="tok-class">class</span> <span class="tok-type">ResilientRedisCache</span>&lt;<span class="tok-type">T</span>&gt; {
+  <span class="tok-kw">private</span> <span class="tok-prop">client</span>: <span class="tok-type">RedisCluster</span>;
+  <span class="tok-kw">private</span> <span class="tok-prop">circuitBreaker</span>: <span class="tok-type">CircuitBreaker</span>;
+
+  <span class="tok-fn">constructor</span>(<span class="tok-prop">config</span>: <span class="tok-type">CacheConfig</span>) {
+    <span class="tok-kw">this</span>.<span class="tok-prop">client</span> = <span class="tok-kw">new</span> <span class="tok-type">RedisCluster</span>(<span class="tok-prop">config</span>.<span class="tok-prop">nodes</span>);
+    <span class="tok-kw">this</span>.<span class="tok-prop">circuitBreaker</span> = <span class="tok-kw">new</span> <span class="tok-type">CircuitBreaker</span>({
+      <span class="tok-prop">failureThreshold</span>: <span class="tok-num">3</span>,
+      <span class="tok-prop">resetTimeoutMs</span>: <span class="tok-num">5000</span>
+    });
+  }
+
+  <span class="tok-kw">async</span> <span class="tok-fn">getOrSet</span>(<span class="tok-prop">key</span>: <span class="tok-type">string</span>, <span class="tok-prop">fetcher</span>: () =&gt; <span class="tok-type">Promise</span>&lt;<span class="tok-type">T</span>&gt;, <span class="tok-prop">ttlSeconds</span> = <span class="tok-num">300</span>): <span class="tok-type">Promise</span>&lt;<span class="tok-type">T</span>&gt; {
+    <span class="tok-kw">if</span> (!<span class="tok-kw">this</span>.<span class="tok-prop">circuitBreaker</span>.<span class="tok-fn">isOpen</span>()) {
+      <span class="tok-kw">const</span> <span class="tok-var">cached</span> = <span class="tok-kw">await</span> <span class="tok-kw">this</span>.<span class="tok-prop">client</span>.<span class="tok-fn">get</span>(<span class="tok-prop">key</span>);
+      <span class="tok-kw">if</span> (<span class="tok-var">cached</span>) <span class="tok-kw">return</span> <span class="tok-type">JSON</span>.<span class="tok-fn">parse</span>(<span class="tok-var">cached</span>);
+    }
+    
+    <span class="tok-comment">// Fallback seamlessly to upstream source</span>
+    <span class="tok-kw">const</span> <span class="tok-var">fresh</span> = <span class="tok-kw">await</span> <span class="tok-fn">fetcher</span>();
+    <span class="tok-kw">this</span>.<span class="tok-prop">client</span>.<span class="tok-fn">setex</span>(<span class="tok-prop">key</span>, <span class="tok-prop">ttlSeconds</span>, <span class="tok-type">JSON</span>.<span class="tok-fn">stringify</span>(<span class="tok-var">fresh</span>)).<span class="tok-fn">catch</span>(<span class="tok-var">console</span>.<span class="tok-prop">error</span>);
+    <span class="tok-kw">return</span> <span class="tok-var">fresh</span>;
+  }
+}</code></pre>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Comparison Section -->
+    <section class="benchmarks-section" id="benchmarks">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">PROVEN BENCHMARKS</span>
+          <h2 class="section-title">The Velocity Quantum Leap</h2>
+          <p class="section-subtitle">
+            See how Nexus compares against traditional human-only workflows and conventional first-generation AI code completions.
+          </p>
+        </div>
+
+        <div class="comparison-table-wrapper spotlight-card">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th scope="col" class="th-metric">Engineering Capability</th>
+                <th scope="col" class="th-traditional">Legacy Development</th>
+                <th scope="col" class="th-copilot">Gen-1 Code Assistants</th>
+                <th scope="col" class="th-nexus">
+                  <div class="nexus-header-pill">Nexus AI Platform</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-metric">
+                  <strong>Full System Architecture Planning</strong>
+                  <span>Autonomous breakdown of distributed systems</span>
+                </td>
+                <td class="td-muted">Manual (2-4 Weeks)</td>
+                <td class="td-muted">Single-file snippets only</td>
+                <td class="td-highlight">
+                  <span class="check-icon">✓</span> <strong>Instant (60 Seconds)</strong>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-metric">
+                  <strong>Multi-Agent Swarm Collaboration</strong>
+                  <span>Cross-checking code against security & test agents</span>
+                </td>
+                <td class="td-muted">Multiple human meetings</td>
+                <td class="td-muted">Unsupported</td>
+                <td class="td-highlight">
+                  <span class="check-icon">✓</span> <strong>Native Consensus Engine</strong>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-metric">
+                  <strong>Self-Healing Runtime Diffs</strong>
+                  <span>Diagnose and patch production alerts autonomously</span>
+                </td>
+                <td class="td-muted">On-call wakeups & hours</td>
+                <td class="td-muted">Unsupported</td>
+                <td class="td-highlight">
+                  <span class="check-icon">✓</span> <strong>Sub-4s Auto-Resolution</strong>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-metric">
+                  <strong>Context Window Capacity</strong>
+                  <span>Whole-repository indexing and memory recall</span>
+                </td>
+                <td class="td-muted">Human mental limit</td>
+                <td class="td-muted">8K - 32K tokens</td>
+                <td class="td-highlight">
+                  <span class="check-icon">✓</span> <strong>2,000,000+ Tokens</strong>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-metric">
+                  <strong>Data Privacy & Sovereignty</strong>
+                  <span>Air-gapped deployment option in own VPC</span>
+                </td>
+                <td class="td-muted">Varies</td>
+                <td class="td-muted">Public cloud training risks</td>
+                <td class="td-highlight">
+                  <span class="check-icon">✓</span> <strong>100% Zero-Retention VPC</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials / Social Proof Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">DEVELOPER VOICES</span>
+          <h2 class="section-title">Loved By World-Class Builders</h2>
+          <p class="section-subtitle">
+            Here is what engineering leaders, staff architects, and unicorn founders are saying.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card spotlight-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">
+              "Nexus AI cut our microservice migration timeline from six months to nine days. The multi-agent consensus caught edge cases that our senior architects hadn't even documented yet."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar avatar-1">SK</div>
+              <div class="author-meta">
+                <span class="author-name">Sarah Koenig</span>
+                <span class="author-title">VP of Engineering, CloudScale</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card spotlight-card featured-testimonial">
+            <div class="stars">★★★★★</div>
+            <p class="quote">
+              "The self-healing runtime is nothing short of magic. A Redis deadlock occurred on Black Friday, and Nexus had diagnosed the issue, written the patch, run the full regression suite, and staged the PR before our pager went off."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar avatar-2">DR</div>
+              <div class="author-meta">
+                <span class="author-name">David Reyes</span>
+                <span class="author-title">Principal Systems Architect, FinFlow</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card spotlight-card">
+            <div class="stars">★★★★★</div>
+            <p class="quote">
+              "We replaced three separate testing and refactoring tools with Nexus. The 2M+ context window means it understands our entire monorepo without dropping state. Outstanding."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar avatar-3">AL</div>
+              <div class="author-meta">
+                <span class="author-name">Elena Rostova</span>
+                <span class="author-title">CTO, NeuralCraft</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pill">SIMPLE, TRANSPARENT TIERS</span>
+          <h2 class="section-title">Scale From Hacker To Enterprise</h2>
+          <p class="section-subtitle">
+            All plans include unlimited local agent execution and access to our core intelligence engine.
+          </p>
+          
+          <!-- Billing Cycle Toggle -->
+          <div class="billing-toggle-wrap">
+            <span class="billing-label" id="label-monthly">Monthly</span>
+            <button class="billing-toggle" id="billing-toggle" role="switch" aria-checked="true" aria-label="Toggle annual billing">
+              <span class="toggle-slider"></span>
+            </button>
+            <span class="billing-label" id="label-annual">
+              Annual <span class="discount-badge">Save 25%</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Starter Tier -->
+          <div class="pricing-card spotlight-card">
+            <div class="card-tier-badge">DEVELOPER</div>
+            <h3 class="tier-name">Hacker</h3>
+            <p class="tier-desc">Perfect for independent developers and open-source creators.</p>
+            <div class="tier-price">
+              <span class="currency">$</span>
+              <span class="amount" data-monthly="0" data-annual="0">0</span>
+              <span class="period">/forever</span>
+            </div>
+            <ul class="tier-features">
+              <li><span class="check">✓</span> 1 Concurrent Autonomous Agent</li>
+              <li><span class="check">✓</span> 500k Context Window</li>
+              <li><span class="check">✓</span> Community Discord Support</li>
+              <li><span class="check">✓</span> Local Git & VS Code Integration</li>
+              <li class="disabled"><span class="cross">✕</span> Multi-Agent Swarm Consensus</li>
+              <li class="disabled"><span class="cross">✕</span> Dedicated Air-Gapped VPC</li>
+            </ul>
+            <a href="#cta" class="btn btn-secondary full-width">Get Started Free</a>
+          </div>
+
+          <!-- Pro Tier (Popular) -->
+          <div class="pricing-card spotlight-card featured-pricing">
+            <div class="popular-ribbon">MOST POPULAR</div>
+            <div class="card-tier-badge tier-badge-pro">HIGH VELOCITY</div>
+            <h3 class="tier-name">Team Pro</h3>
+            <p class="tier-desc">For growing startups and fast-moving product teams.</p>
+            <div class="tier-price">
+              <span class="currency">$</span>
+              <span class="amount" id="pro-price" data-monthly="39" data-annual="29">29</span>
+              <span class="period">/seat/mo</span>
+            </div>
+            <ul class="tier-features">
+              <li><span class="check">✓</span> <strong>Unlimited</strong> Concurrent Agents</li>
+              <li><span class="check">✓</span> <strong>2,000,000 Token</strong> Context Window</li>
+              <li><span class="check">✓</span> Full Multi-Agent Swarm Consensus</li>
+              <li><span class="check">✓</span> Self-Healing CI/CD Runtime Hooks</li>
+              <li><span class="check">✓</span> Priority Neural Edge Latency (5ms)</li>
+              <li class="disabled"><span class="cross">✕</span> Air-Gapped On-Premise VPC</li>
+            </ul>
+            <a href="#cta" class="btn btn-primary full-width glow-button">
+              <span>Start 14-Day Free Trial</span>
+            </a>
+          </div>
+
+          <!-- Enterprise Tier -->
+          <div class="pricing-card spotlight-card">
+            <div class="card-tier-badge">MISSION CRITICAL</div>
+            <h3 class="tier-name">Enterprise</h3>
+            <p class="tier-desc">Tailored for Fortune 500, defense, and high-security compliance.</p>
+            <div class="tier-price">
+              <span class="currency">$</span>
+              <span class="amount" id="ent-price" data-monthly="199" data-annual="149">149</span>
+              <span class="period">/seat/mo</span>
+            </div>
+            <ul class="tier-features">
+              <li><span class="check">✓</span> Everything in Team Pro</li>
+              <li><span class="check">✓</span> <strong>Air-Gapped Sovereign VPC Deployment</strong></li>
+              <li><span class="check">✓</span> SOC2 Type II, HIPAA, ISO27001 Certified</li>
+              <li><span class="check">✓</span> Custom Fine-Tuned Agent Weights</li>
+              <li><span class="check">✓</span> Dedicated Technical Account Architect</li>
+              <li><span class="check">✓</span> 99.999% SLA Guarantee</li>
+            </ul>
+            <a href="#cta" class="btn btn-secondary full-width">Contact Enterprise Sales</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <span class="section-pill">KNOWLEDGE BASE</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">
+            Everything you need to know about Nexus AI, security, and developer integration.
+          </p>
+        </div>
+
+        <div class="faq-accordion">
+          
+          <details class="faq-item spotlight-card" open>
+            <summary class="faq-question">
+              <span>How does Nexus AI differ from traditional single-prompt copilots?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Conventional AI assistants operate as simple inline completion models with short context horizons. Nexus AI is an autonomous <strong>agentic operating platform</strong>. It dispatches a swarm of specialized micro-agents that map the full codebase, generate architectural specifications, write unit tests, execute verification loops in sandboxes, and only present verified, working code to your team.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item spotlight-card">
+            <summary class="faq-question">
+              <span>Is our source code used to train public AI models?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                <strong>Never.</strong> We adhere to a strict Zero-Data-Retention policy. Your proprietary code is encrypted in transit and at rest with customer-managed KMS keys. For regulated industries, we provide full on-premises and air-gapped VPC deployment where tokens never leave your network boundary.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item spotlight-card">
+            <summary class="faq-question">
+              <span>Can I integrate Nexus AI into our existing CI/CD pipelines?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Yes. Nexus features first-class GitHub Actions, GitLab CI, and Kubernetes operators. You can configure it to autonomously review incoming PRs, generate regression tests for broken builds, and auto-repair failing test suites before code hits production.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item spotlight-card">
+            <summary class="faq-question">
+              <span>What languages and frameworks are supported?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Nexus provides deep semantic AST support for TypeScript/JavaScript, Python, Go, Rust, Java, C++, Swift, and Kotlin, alongside modern web frameworks (React, Next.js, Vue, Angular) and cloud infrastructure tools (Terraform, Docker, Kubernetes).
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item spotlight-card">
+            <summary class="faq-question">
+              <span>How does the 14-day free trial work?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                You get full, unrestricted access to the Team Pro tier for 14 days without requiring a credit card. You can invite your team, connect your test repositories, and experience autonomous engineering firsthand.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="cta-section" id="cta">
+      <div class="container">
+        <div class="cta-banner spotlight-card">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <span class="badge-pulse">JOIN 50,000+ DEVELOPERS</span>
+            <h2 class="cta-title">Ready To Supercharge Your Engineering?</h2>
+            <p class="cta-subtitle">
+              Start building with Nexus today. Deploy autonomous agents, eradicate tech debt, and ship software at 10x velocity.
+            </p>
+            
+            <!-- Interactive Signup Form -->
+            <form class="cta-form" id="signup-form">
+              <div class="cta-input-group">
+                <input type="email" id="signup-email" placeholder="Enter your work email..." required class="cta-input">
+                <button type="submit" class="btn btn-primary btn-lg glow-button">
+                  <span id="signup-btn-text">Get Instant Access</span>
+                  <svg class="btn-arrow" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.33334 8H12.6667M12.6667 8L8.00001 3.33334M12.6667 8L8.00001 12.6667" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div class="form-feedback" id="form-feedback" role="alert"></div>
+            </form>
+
+            <div class="cta-trust-items">
+              <span>🔒 14-day free trial</span>
+              <span>⚡ No credit card required</span>
+              <span>🚀 2-minute setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="url(#footer-grad)" />
+                <path d="M9 23V9L23 23V9" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                  <linearGradient id="footer-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6366F1"/>
+                    <stop offset="1" stop-color="#EC4899"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span class="brand-name">Nexus<span class="gradient-text">AI</span></span>
+          </div>
+          <p class="footer-desc">
+            The next-generation autonomous engineering intelligence platform. Designed for high-scale teams building the systems of tomorrow.
+          </p>
+          <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span>All Global Systems Operational</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Platform</h4>
+          <a href="#features">Agent Swarm</a>
+          <a href="#benchmarks">Self-Healing Runtime</a>
+          <a href="#architecture">Zero-Trust Guardrails</a>
+          <a href="#interactive-playground">Interactive Playground</a>
+          <a href="#pricing">Pricing & Tiers</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">API Reference</a>
+          <a href="#">Architecture Whitepaper</a>
+          <a href="#">Security & Compliance</a>
+          <a href="#">Changelog</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <h4>Company</h4>
+          <a href="#">About Nexus</a>
+          <a href="#">Engineering Blog</a>
+          <a href="#">Careers <span class="hiring-badge">We're Hiring</span></a>
+          <a href="#">Open Source</a>
+          <a href="#">Press Kit</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nexus AI Systems, Inc. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security Protocol</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Demo Walkthrough Modal -->
+  <dialog id="demo-modal" class="demo-dialog">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box spotlight-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">🎬</span>
+          <h3 class="modal-title">Nexus AI: 90-Second Walkthrough</h3>
+        </div>
+        <button id="close-modal-btn" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="simulated-video-screen">
+          <div class="video-overlay-play">
+            <div class="pulse-play">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <h4>Autonomous Agent Swarm Deployment Simulation</h4>
+            <p>Watch Nexus decompose a production anomaly, author the patch, and trigger a blue/green deploy.</p>
+          </div>
+          <div class="video-progress-bar">
+            <div class="video-progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Interactive Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
